@@ -30,6 +30,5 @@ public class T3_upload {
         String expected = "1 file\nhas been successfully uploaded.";
         Thread.sleep(3000);
         assertEquals(successMessage.getText(),expected);
-
     }
 }
