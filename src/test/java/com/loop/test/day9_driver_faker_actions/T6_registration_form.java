@@ -6,9 +6,12 @@ import com.loop.test.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.text.SimpleDateFormat;
+
+import static org.testng.Assert.assertEquals;
 
 public class T6_registration_form {
     /*
@@ -47,7 +50,7 @@ public class T6_registration_form {
         otherCheck.click();
 
         WebElement dateOfBirth = Driver.getDriver().findElement(By.xpath("//input[@name='birthday']"));
-        SimpleDateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         dateOfBirth.sendKeys(dateFormat.format(faker.date().birthday()));
 
         Select dropdown = new Select(Driver.getDriver().findElement(By.xpath("//select[@name='department']")));
@@ -62,7 +65,9 @@ public class T6_registration_form {
         WebElement signUp = Driver.getDriver().findElement(By.xpath("//button[@type='submit']"));
         signUp.click();
 
-
+        WebElement actualMessage = Driver.getDriver().findElement(By.xpath("//div[contains(@id, 'main-message')]"));
+        String expectedMsg = "This page isn't working\nIf the problem continues, contact the site owner.\nHTTP ERROR 405";
+        Assert.assertEquals(expectedMsg, actualMessage.getText());
         Driver.closeDriver();
     }
 }
