@@ -30,14 +30,30 @@ public class task5_docuport_advisor {
         uploadDocsButton.click();
 
         String path = "/Users/natalie/Desktop/Upload the document.docx";
-        uploadDocsButton.sendKeys(path);
-
         WebElement uploadFile = Driver.getDriver().findElement(By.xpath("//*[contains(@class,'docu-upload')]//button"));
-        uploadFile.click();
+        uploadFile.sendKeys(path);
+
+        
+        WebElement client = Driver.getDriver().findElement(By.xpath("//label[contains(text(),'Client')]//following-sibling::input[1]"));
+        client.click();
+
+        WebElement test = Driver.getDriver().findElement(By.xpath("//div[contains(text(),'Test')]"));
+        test.click();
+
+        WebElement service = Driver.getDriver().findElement(By.xpath("(//div[contains(@class,'v-input__append')]//preceding-sibling::input)[2]"));
+        service.click();
+
+        WebElement bokkeeping = Driver.getDriver().findElement(By.xpath("//div[contains(text(),'Bookkeeping')]"));
+        bokkeeping.click();
+
+        WebElement docType = Driver.getDriver().findElement(By.xpath("//span[contains(@class,'ma-1 v-chip')]"));
+        docType.click();
+
+        WebElement quarter = Driver.getDriver().findElement(By.xpath("//span[contains(text(),'Q2')]"));
+        quarter.click();
 
         WebElement uploadButton = Driver.getDriver().findElement(By.xpath("//button[contains(@type,'submit')]"));
         uploadButton.click();
-
 
         Driver.closeDriver();
     }

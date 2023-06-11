@@ -34,7 +34,7 @@ public class T1_JSExecutor_scroll {
         JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
 
         //3 move horizontally or vertically
-//        js.executeScript("window.scrollBy(0,1000)");
+//        js.executeScript("window.scrollBy(0,5000)");
 
         //4 - the best way of using scrolling
         js.executeScript("arguments[0].scrollIntoView(true)", emailBox);
