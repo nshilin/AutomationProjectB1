@@ -27,15 +27,15 @@ public class task5_docuport_client {
         WebElement uploadFile = Driver.getDriver().findElement(By.xpath("//*[contains(@class,'docu-upload')]//button"));
         String path = "/Users/natalie/Desktop/Upload the document.docx";
         uploadFile.sendKeys(path);
-        Thread.sleep(5000);
 
         //5.Choose Service
-        WebElement chooseService = Driver.getDriver().findElement(By.xpath("//div[contains(@role,'combobox')]"));
+        WebElement chooseService = Driver.getDriver().findElement(By.xpath("(//input[contains(@id,'input')])[3]"));
         chooseService.click();
 
         WebElement bookkeeping = Driver.getDriver().findElement(By.xpath("//div[contains(text(),'Bookkeeping')]"));
         bookkeeping.click();
 
+        //6.Choose Doc type
         WebElement docType = Driver.getDriver().findElement(By.xpath("//span[contains(@class,'ma-1 v-chip')]"));
         docType.click();
 
